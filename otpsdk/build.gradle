@@ -46,3 +46,23 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.5.0"
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.Funsol-DevOps'
+                artifactId = 'FunOTPSdk'
+                version = '1.0'
+            }
+            debug(MavenPublication) {
+                from components.debug
+                groupId = 'com.github.Funsol-DevOps'
+                artifactId = 'FunOTPSdk'
+                version = '1.0'
+            }
+
+        }
+    }
+}
